@@ -31,7 +31,9 @@ public class DominoGame extends Game {
     int numberOfSegments = 5;
     int lastLineDelta = 10;
     int lowestArea = 50;
+    int squareIndex = 5;
     int startingX, startingY, startingWidth, startingHeight = 0;
+    float elapsedtime = 0;
 
     @Override
     public void create() {
@@ -46,19 +48,29 @@ public class DominoGame extends Game {
       //  fillStars();
     }
 
+    Color color = Color.BLACK;
     @Override
     public void render() {
+        elapsedtime += Gdx.graphics.getDeltaTime();
+        if (elapsedtime >= MathUtils.random(0.5f, 1)) {
+            color.set(MathUtils.random(0.2f, 1), MathUtils.random(0.5f, 1), MathUtils.random(0.7f, 1), MathUtils.random(0.5f, 1));
+            System.out.println(Gdx.graphics.getFramesPerSecond());
+            System.out.println(Gdx.graphics.getFrameId());
+            squareIndex = MathUtils.random(8);
+            elapsedtime = 0;
+        }
         Gdx.gl.glClearColor(1f, 1, 1, 0.8f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         renderer.setProjectionMatrix(batch.getProjectionMatrix());
         renderer.setTransformMatrix(batch.getTransformMatrix());
         renderer.begin(ShapeRenderer.ShapeType.Filled);
-        renderer.setColor(Color.BLACK);
+        renderer.setColor(color);
         drawBoard(startingWidth, startingHeight, startingX, startingY);
 
         renderer.end();
 
     }
+
 
     private void fillStars() {
         for (int i = 0; i < numberOfStarts; i++) {
@@ -77,8 +89,8 @@ public class DominoGame extends Game {
         for (int i = 0; i < rects.size; i++) {
             Rectangle currentRect = rects.get(i);
             drawBoard((int) currentRect.width, (int) currentRect.height, (int) currentRect.x, (int) currentRect.y);
-            if (i == 4) {
-                renderer.rect(currentRect.x, currentRect.y, currentRect.width, currentRect.height);
+            if (i == squareIndex) {
+                renderer.ellipse(currentRect.x, currentRect.y, currentRect.width, currentRect.height);
             }
         }
     }
