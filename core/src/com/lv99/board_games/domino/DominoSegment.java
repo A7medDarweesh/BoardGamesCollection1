@@ -9,8 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 /**
  * Created by ahmed_darweeesh on 11/18/2016.
  */
-
 public class DominoSegment extends Actor {
+
     private static final int STROKE_WIDTH = 3;
     private DominoValues value;
     ShapeRenderer renderer;
@@ -29,21 +29,23 @@ public class DominoSegment extends Actor {
         renderer.setTransformMatrix(batch.getTransformMatrix());
         renderer.begin(ShapeType.Filled);
         renderer.setColor(Color.BLACK);
-        int effectiveStrokeWidth = flipped ? 0 : STROKE_WIDTH;
+        int effectiveStrokeWidth = !flipped ? 0 : STROKE_WIDTH;
         renderer.rect(getX(), getY(), getWidth(), getHeight());
-        renderer.setColor(Color.OLIVE);
+        renderer.setColor(Color.MAROON);
         renderer.rect(getX() + effectiveStrokeWidth, getY() + effectiveStrokeWidth, getWidth() - (effectiveStrokeWidth * 2), getHeight() - (effectiveStrokeWidth * 2));
-        if(flipped){
+        if (flipped) {
+            renderer.setColor(Color.SALMON);
             drawNumber();
         }
         renderer.end();
         batch.begin();
-        
+
     }
 
     private void drawNumber() {
-        for (int i = 0; i < value.value; i += 2) {
-            renderer.circle(value.getCoordinates()[i] * (getWidth() / 10), value.getCoordinates()[i + 1] * (getHeight() / 10), getWidth() * getHeight() / 100);
+        for (int i = 0; i < value.getCoordinates().length; i += 2) {
+//            System.out.println("value="+value+" and x="+getX()+" and x coord="+value.getCoordinates()[i]+" and effective circle x="+getX() +value.getCoordinates()[i] );
+            renderer.circle(getX() + value.getCoordinates()[i] * (getWidth() / 10), getY() + value.getCoordinates()[i + 1] * (getHeight() / 10), (getWidth() * getHeight()) / 500);
         }
     }
 }

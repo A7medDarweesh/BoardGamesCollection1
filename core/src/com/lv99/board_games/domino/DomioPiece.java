@@ -23,6 +23,7 @@ public class DomioPiece extends Group {
         upperSegment.setBounds(x, y + (height / 2), width, height / 2);
         addActor(lowerSegment);
         addActor(upperSegment);
+        addListener(new DominoSegmentInputManger(this));
     }
 
     public void setupmatrix() {
@@ -33,5 +34,10 @@ public class DomioPiece extends Group {
     public void draw(Batch batch, float parentAlpha) {
 
         super.draw(batch, parentAlpha);
+    }
+
+    void toggleFlipState() {
+        lowerSegment.flipped=!lowerSegment.flipped;
+        upperSegment.flipped=!upperSegment.flipped;
     }
 }

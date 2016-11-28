@@ -6,7 +6,7 @@ import java.util.Map;
 
 public enum DominoValues {
     ONE(1, new int[] { 5, 5 }),
-    TWO(2, new int[] { 2, 2, 9, 9 }),
+    TWO(2, new int[] { 3, 3, 8, 8 }),
     THREE(3, new int[] { 2, 2, 5, 5, 9, 9 }),
     FOUR(4, new int[] { 2, 2, 8, 2, 2, 8, 8, 8 }),
     FIVE(5, new int[] { 2, 2, 8, 2, 2, 8, 8, 8, 5, 5 }),
