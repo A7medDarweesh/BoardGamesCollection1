@@ -7,7 +7,6 @@
 package com.lv99.board_games.domino;
 
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
@@ -23,14 +22,17 @@ DomioPiece segment;
 
     @Override
     public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-         if (button != Input.Buttons.LEFT || pointer > 0)
+        if (!(button == Input.Buttons.LEFT || button == Input.Buttons.RIGHT) || pointer > 0)
             return false;
         return true;
     }
 
     @Override
     public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+        if (button == Input.Buttons.LEFT)
         segment.toggleFlipState();
+        if (button == Input.Buttons.RIGHT)
+            segment.rotate();
     }
     
 }

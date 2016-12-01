@@ -2,7 +2,9 @@ package com.lv99.board_games.domino;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 
 /**
  * Created by ahmed_darweeesh on 11/18/2016.
@@ -19,6 +21,7 @@ public class DomioPiece extends Group {
         DominoValues uper = DominoValues.valueOf(upperNumber);
         lowerSegment = new DominoSegment(renderer, lower);
         lowerSegment.setBounds(x, y, width, height / 2);
+        setOrigin(width / 2, height);
         upperSegment = new DominoSegment(renderer, uper);
         upperSegment.setBounds(x, y + (height / 2), width, height / 2);
         addActor(lowerSegment);
@@ -26,10 +29,10 @@ public class DomioPiece extends Group {
         addListener(new DominoSegmentInputManger(this));
     }
 
-    public void setupmatrix() {
-        renderer.setProjectionMatrix(getStage().getViewport().getCamera().combined);
-        renderer.setTransformMatrix(getStage().getViewport().getCamera().combined);
+    public void rotate() {
+        addAction(Actions.rotateBy(-90, 1, Interpolation.circle));
     }
+
     @Override
     public void draw(Batch batch, float parentAlpha) {
 

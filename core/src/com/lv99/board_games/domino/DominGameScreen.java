@@ -11,9 +11,9 @@ public class DominGameScreen implements Screen {
     public DominGameScreen() {
        ScreenViewport screen = new ScreenViewport();
         stage = new Stage(screen);
-        DomioPiece actor = new DomioPiece(2, 4, 10, 50, 50, 100);
+
+        DomioPiece actor = new DomioPiece(5, 4, 10, 50, 50, 100);
         stage.addActor(actor);
-        actor.setupmatrix();
         Gdx.input.setInputProcessor(stage);
     }
     @Override
