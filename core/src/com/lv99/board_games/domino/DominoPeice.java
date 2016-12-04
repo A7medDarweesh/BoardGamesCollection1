@@ -10,11 +10,11 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
  * Created by ahmed_darweeesh on 11/18/2016.
  */
 
-public class DomioPiece extends Group {
+public class DominoPeice extends Group {
     DominoSegment upperSegment, lowerSegment;
     ShapeRenderer renderer;
 
-    public DomioPiece(int upperNumber, int lowernumber, int x, int y, int width, int height) {
+    public DominoPeice(int upperNumber, int lowernumber, int x, int y, int width, int height) {
         renderer = new ShapeRenderer();
 
         DominoValues lower = DominoValues.valueOf(lowernumber);

@@ -15,8 +15,8 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
  * @author ahmed_darweeesh
  */
 class DominoSegmentInputManger extends InputListener {
-DomioPiece segment;
-    public DominoSegmentInputManger(DomioPiece segment) {
+DominoPeice segment;
+    public DominoSegmentInputManger(DominoPeice segment) {
         this.segment=segment;
     }
 
