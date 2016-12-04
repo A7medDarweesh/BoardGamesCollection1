@@ -5,14 +5,14 @@ import java.util.Map;
 
 
 public enum DominoValues {
-    ONE(1, new int[] { 5, 5 }),
-    TWO(2, new int[] { 3, 3, 8, 8 }),
-    THREE(3, new int[] { 2, 2, 5, 5, 9, 9 }),
-    FOUR(4, new int[] { 2, 2, 8, 2, 2, 8, 8, 8 }),
-    FIVE(5, new int[] { 2, 2, 8, 2, 2, 8, 8, 8, 5, 5 }),
-    SIX(6, new int[] { 2, 2, 8, 2, 2, 8, 8, 8, 2, 5, 8, 5 });
+    ONE(1, new float[] { 0.5f, 0.5f }),
+    TWO(2, new float[] { 0.3f, 0.3f, 0.8f, 0.8f }),
+    THREE(3, new float[] { 0.2f, 0.2f, 0.5f, 0.5f, 0.8f, 0.8f }),
+    FOUR(4, new float[] { 0.2f, 0.2f, 0.8f, 0.2f, 0.2f, 0.8f, 0.8f, 0.8f }),
+    FIVE(5, new float[] { 0.2f, 0.2f, 0.8f, 0.2f, 0.2f, 0.8f, 0.8f, 0.8f, 0.5f, 0.5f }),
+    SIX(6, new float[] { 0.2f, 0.2f, 0.8f, 0.2f, 0.2f, 0.8f, 0.8f, 0.8f, 0.2f, 0.5f, 0.8f, 0.5f });
 
-    private DominoValues(int value, int[] coordinates) {
+    private DominoValues(int value, float[] coordinates) {
         this.value = value;
         this.coordinates = coordinates;
     }
@@ -32,7 +32,7 @@ public enum DominoValues {
     }
 
     int value;
-    int[] coordinates;
+    float[] coordinates;
 
     /**
      * @return the value
@@ -44,7 +44,7 @@ public enum DominoValues {
     /**
      * @return the coordinates
      */
-    public int[] getCoordinates() {
+    public float[] getCoordinates() {
         return coordinates;
     }
 
