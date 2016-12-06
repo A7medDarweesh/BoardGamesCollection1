@@ -21,8 +21,7 @@ public class DominoPeice extends Group {
         DominoValues uper = DominoValues.valueOf(upperNumber);
         lowerSegment = new DominoSegment(renderer, lower, viewport);
         lowerSegment.setBounds(x, y, width, height / 2);
-
-        setOrigin(width, height);
+        setOrigin(x + width / 2, y + height / 2);
         upperSegment = new DominoSegment(renderer, uper, viewport);
         upperSegment.setBounds(x, y + (height / 2), width, height / 2);
         addActor(lowerSegment);
@@ -36,7 +35,7 @@ public class DominoPeice extends Group {
         super.act(delta);
     }
     public void rotate() {
-        addAction(Actions.rotateBy(-90, 1));
+        addAction(Actions.rotateBy(-90, 0.5f));
         // addAction(Actions.forever(Actions.sequence(Actions.scaleTo(2, 2, 0.5f), Actions.scaleTo(1, 1, 0.5f), Actions.delay(0.5f))));
     }
 

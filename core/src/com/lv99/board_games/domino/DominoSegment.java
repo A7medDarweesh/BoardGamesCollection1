@@ -47,6 +47,7 @@ public class DominoSegment extends Actor {
     }
 
     private void drawNumber() {
+        if (value.getCoordinates() != null)
         for (int i = 0; i < value.getCoordinates().length; i += 2) {
             // System.out.println("value=" + value + " and x=" + getX() + " and x coord=" + value.getCoordinates()[i] + " and effective circle x=" + (getX() + value.getCoordinates()[i]));
             renderer.circle(getX() + (value.getCoordinates()[i] * getWidth()), getY() + (value.getCoordinates()[i + 1] * getHeight()), getWidth() / 10, 40);

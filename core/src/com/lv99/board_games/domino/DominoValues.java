@@ -6,11 +6,12 @@ import java.util.Map;
 
 public enum DominoValues {
     ONE(1, new float[] { 0.5f, 0.5f }),
-    TWO(2, new float[] { 0.3f, 0.3f, 0.8f, 0.8f }),
-    THREE(3, new float[] { 0.2f, 0.2f, 0.5f, 0.5f, 0.8f, 0.8f }),
-    FOUR(4, new float[] { 0.2f, 0.2f, 0.8f, 0.2f, 0.2f, 0.8f, 0.8f, 0.8f }),
-    FIVE(5, new float[] { 0.2f, 0.2f, 0.8f, 0.2f, 0.2f, 0.8f, 0.8f, 0.8f, 0.5f, 0.5f }),
-    SIX(6, new float[] { 0.2f, 0.2f, 0.8f, 0.2f, 0.2f, 0.8f, 0.8f, 0.8f, 0.2f, 0.5f, 0.8f, 0.5f });
+    ZERO(0, null),
+    TWO(2, new float[] { 0.3f, 0.3f, 0.7f, 0.7f }),
+    THREE(3, new float[] { 0.3f, 0.3f, 0.5f, 0.5f, 0.7f, 0.7f }),
+    FOUR(4, new float[] { 0.3f, 0.3f, 0.7f, 0.3f, 0.3f, 0.7f, 0.7f, 0.7f }),
+    FIVE(5, new float[] { 0.3f, 0.3f, 0.7f, 0.3f, 0.3f, 0.7f, 0.7f, 0.7f, 0.5f, 0.5f }),
+    SIX(6, new float[] { 0.3f, 0.3f, 0.7f, 0.3f, 0.3f, 0.7f, 0.7f, 0.7f, 0.3f, 0.5f, 0.7f, 0.5f });
 
     private DominoValues(int value, float[] coordinates) {
         this.value = value;

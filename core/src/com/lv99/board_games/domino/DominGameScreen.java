@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -17,11 +18,14 @@ public class DominGameScreen implements Screen {
     public DominGameScreen() {
         renderer=new ShapeRenderer();
         // screen=new ScreenViewport();
-        screen = new ExtendViewport(worldWidth, worldHeight);
+        screen = new ExtendViewport(worldWidth, worldHeight, worldWidth, worldHeight);
+        // screen = new FillViewport(worldWidth, worldHeight);
         stage = new Stage(screen);
+        for (int i = 0; i < 8; i++) {
+            DominoPeice actor = new DominoPeice(MathUtils.random(0, 6), MathUtils.random(0, 6), 2 + (i * 2), 0.5f, 1.5f, 3, screen);
+            stage.addActor(actor);
 
-        DominoPeice actor = new DominoPeice(5, 4, 2, 2, 2, 4, screen);
-        stage.addActor(actor);
+        }
         Gdx.input.setInputProcessor(stage);
     }
     @Override
