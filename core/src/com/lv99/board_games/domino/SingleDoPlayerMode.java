@@ -16,13 +16,14 @@ public class SingleDoPlayerMode implements DominoGameMode{
     int index=0;
     int startingPeices=8;
     
-Array<DominoPlayer> players;
+Array<DominoPlayer> players=new Array<>(2);
     Array<Vector2>deck=new Array<>();
 
-    public SingleDoPlayerMode() {
+    public SingleDoPlayerMode(String playerName) {
         DominoPlayer player1=new DominoPlayer();
         DominoPlayer cpu=new DominoPlayer();
         player1.setPosition(BoardPosition.BOTTOM);
+        player1.setName(playerName);
         cpu.setPosition(BoardPosition.TOP);
         players.addAll(player1,cpu);
         for (int i = 0; i < 7; i++) {

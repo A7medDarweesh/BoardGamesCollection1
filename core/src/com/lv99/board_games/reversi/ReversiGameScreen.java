@@ -45,6 +45,7 @@ public class ReversiGameScreen implements Screen {
         ScreenViewport screen = new ScreenViewport();
         stage = new Stage(screen);
         Gdx.input.setInputProcessor(stage);
+
         player=Player.WHITE;
         setUpPostProcessor();
     }
@@ -60,7 +61,7 @@ public class ReversiGameScreen implements Screen {
         // initializeEffects();
     }
 
-    private void DrawBaord(boolean redraw) {
+    private void drawBoard(boolean redraw) {
 
         pieceWidth = Gdx.graphics.getWidth() / 10;
         pieceHeiht = (int) ((Gdx.graphics.getHeight() / 10));
@@ -104,7 +105,8 @@ public class ReversiGameScreen implements Screen {
         stage.draw();
 //        postProcessor.render();
         if(firstDraw){
-            DrawBaord(false);
+            drawBoard(false);
+            drawBoard(true);
             firstDraw=false;
         }
 
@@ -113,7 +115,7 @@ public class ReversiGameScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
-        DrawBaord(true);
+        drawBoard(true);
 
     }
 
