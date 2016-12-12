@@ -21,11 +21,13 @@ public class DominGameScreen implements Screen {
         screen = new ExtendViewport(worldWidth, worldHeight, worldWidth, worldHeight);
         // screen = new FillViewport(worldWidth, worldHeight);
         stage = new Stage(screen);
+        DominoBoard board = new DominoBoard(1.5f, 1.5f, 17, 17);
         for (int i = 0; i < 8; i++) {
-            DominoPeice actor = new DominoPeice(MathUtils.random(0, 6), MathUtils.random(0, 6), 2 + (i * 2), 0.5f, 1.5f, 3, screen);
-            stage.addActor(actor);
+            DominoPeice actor = new DominoPeice(MathUtils.random(0, 6), MathUtils.random(0, 6), 1f + (i * 2f), 0.5f, 1.5f, 3f, screen);
+            board.addActor(actor);
 
         }
+        stage.addActor(board);
         Gdx.input.setInputProcessor(stage);
     }
     @Override

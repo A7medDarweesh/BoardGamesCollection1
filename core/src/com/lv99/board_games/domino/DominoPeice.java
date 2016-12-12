@@ -16,7 +16,8 @@ public class DominoPeice extends Group {
 
     public DominoPeice(int upperNumber, int lowernumber, float x, float y, float width, float height, Viewport viewport) {
         renderer = new ShapeRenderer();
-
+        System.out.println(x);
+        // setBounds(x, y, width, height);
         DominoValues lower = DominoValues.valueOf(lowernumber);
         DominoValues uper = DominoValues.valueOf(upperNumber);
         lowerSegment = new DominoSegment(renderer, lower, viewport);
