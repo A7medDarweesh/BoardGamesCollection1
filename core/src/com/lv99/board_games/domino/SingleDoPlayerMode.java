@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.Array;
 public class SingleDoPlayerMode implements DominoGameMode{
     int index=0;
     int startingPeices=8;
+    DominoPeice selectedpPeice;
     
 Array<DominoPlayer> players=new Array<>(2);
     Array<Vector2>deck=new Array<>();
