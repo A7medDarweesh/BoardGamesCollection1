@@ -16,7 +16,6 @@ public class DominoPeice extends Group {
 
     public DominoPeice(int upperNumber, int lowernumber, float x, float y, float width, float height, Viewport viewport) {
         renderer = new ShapeRenderer();
-        System.out.println(x);
         // setBounds(x, y, width, height);
         DominoValues lower = DominoValues.valueOf(lowernumber);
         DominoValues uper = DominoValues.valueOf(upperNumber);
@@ -32,7 +31,7 @@ public class DominoPeice extends Group {
 
     @Override
     public void act(float delta) {
-        // TODO Auto-generated method stub
+
         super.act(delta);
     }
     public void rotate() {

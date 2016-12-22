@@ -16,6 +16,8 @@ public interface DominoGameMode {
     void decideWinner();
     void setPlayersList(Array<DominoPlayer>players);
     DominoPlayer getCurrentPlayer();
+
+    Array<DominoPlayer> getParticipatingPlayers();
     
     
 }

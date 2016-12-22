@@ -30,7 +30,7 @@ public class DominoSegment extends Actor {
         batch.end();
         // renderer.setProjectionMatrix(batch.getProjectionMatrix());
         renderer.setTransformMatrix(batch.getTransformMatrix());
-        renderer.setProjectionMatrix(viewport.getCamera().combined);
+        renderer.setProjectionMatrix(batch.getProjectionMatrix());
         renderer.begin(ShapeType.Filled);
         renderer.setColor(Color.BLACK);
         float effectiveStrokeWidth = !flipped ? 0 : STROKE_WIDTH;

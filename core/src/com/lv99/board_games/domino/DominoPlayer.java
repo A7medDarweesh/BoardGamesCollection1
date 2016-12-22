@@ -1,17 +1,35 @@
 package com.lv99.board_games.domino;
 
-import java.util.List;
-
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 
 public class DominoPlayer {
     private String name;
     private int score;
-    private List<DominoPeice> holdedPieces;
+    private Array<DominoPeice> holdedPieces = new Array<>();
+    private Array<Vector2> startingNumbers;
     private PlayerType playerType;
     private Vector2 firstAvailablePoint;
     private BoardPosition position;
+    private boolean owner;
 
+    public DominoPlayer() {
+    }
+
+    public void setupPieces() {
+        Vector2 startingPosition = position.startingPosition;
+        float i = 0;
+        for (Vector2 numberPair : startingNumbers) {
+            float posX = startingPosition.x + (i * position.xIncrement);
+            float posY = startingPosition.y + (i++ * position.yIncrement);
+            DominoPeice piece = new DominoPeice((int) numberPair.x, (int) numberPair.y, posX, posY, Constants.PICE_WIDTH, Constants.PIECE_HEIGHT, null);
+            if (owner) {
+                piece.toggleFlipState();
+            }
+            holdedPieces.add(piece);
+        }
+
+    }
     /**
      * @return the name
      */
@@ -43,14 +61,14 @@ public class DominoPlayer {
     /**
      * @return the holdedPieces
      */
-    public List<DominoPeice> getHoldedPieces() {
+    public Array<DominoPeice> getHoldedPieces() {
         return holdedPieces;
     }
 
     /**
      * @param holdedPieces the holdedPieces to set
      */
-    public void setHoldedPieces(List<DominoPeice> holdedPieces) {
+    public void setHoldedPieces(Array<DominoPeice> holdedPieces) {
         this.holdedPieces = holdedPieces;
     }
 
@@ -92,6 +110,19 @@ public class DominoPlayer {
 
     public void setPosition(BoardPosition position) {
         this.position = position;
+    }
+
+    public Array<Vector2> getStartingPositions() {
+        return startingNumbers;
+    }
+
+    public void setStartingPositions(Array<Vector2> startingPositions) {
+        this.startingNumbers = startingPositions;
+    }
+
+    public void setOwner(boolean b) {
+        this.owner = b;
+
     }
     
 }

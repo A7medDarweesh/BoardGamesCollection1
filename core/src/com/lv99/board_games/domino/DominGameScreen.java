@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -15,16 +14,22 @@ public class DominGameScreen implements Screen {
     int worldHeight=20;
     Viewport screen ;
     ShapeRenderer renderer;
-    public DominGameScreen() {
+    DominoGameMode gameMode;
+
+    public DominGameScreen(DominoGameMode gameMode) {
+        this.gameMode = gameMode;
+
         renderer=new ShapeRenderer();
         // screen=new ScreenViewport();
         screen = new ExtendViewport(worldWidth, worldHeight, worldWidth, worldHeight);
         // screen = new FillViewport(worldWidth, worldHeight);
         stage = new Stage(screen);
-        DominoBoard board = new DominoBoard(2f, 2f, 16, 16);
-        for (int i = 0; i < 8; i++) {
-            DominoPeice actor = new DominoPeice(MathUtils.random(0, 6), MathUtils.random(0, 6), 2f + (i), 0.1f, 0.75f, 1.5f, screen);
-            stage.addActor(actor);
+        DominoBoard board = new DominoBoard(2f, 3.5f, 16, 13);
+        for (DominoPlayer player : gameMode.getParticipatingPlayers()) {
+            for (DominoPeice piece : player.getHoldedPieces()) {
+
+                stage.addActor(piece);
+            }
 
         }
         stage.addActor(board);
