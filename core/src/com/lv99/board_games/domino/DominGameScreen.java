@@ -23,7 +23,7 @@ public class DominGameScreen implements Screen {
         // screen=new ScreenViewport();
         screen = new ExtendViewport(worldWidth, worldHeight, worldWidth, worldHeight);
         // screen = new FillViewport(worldWidth, worldHeight);
-        stage = new Stage(screen);
+        stage = new DominoStage(screen);
         DominoBoard board = new DominoBoard(2f, 3.5f, 16, 13);
         for (DominoPlayer player : gameMode.getParticipatingPlayers()) {
             for (DominoPeice piece : player.getHoldedPieces()) {

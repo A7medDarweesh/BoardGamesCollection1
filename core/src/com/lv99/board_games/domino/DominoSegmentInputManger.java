@@ -30,7 +30,7 @@ DominoPeice segment;
     @Override
     public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
         if (button == Input.Buttons.LEFT)
-        segment.toggleFlipState();
+            segment.doSelect();
         if (button == Input.Buttons.RIGHT)
             segment.rotate();
     }

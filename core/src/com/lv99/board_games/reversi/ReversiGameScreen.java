@@ -1,9 +1,10 @@
 package com.lv99.board_games.reversi;
 
-import box2dLight.PointLight;
-import box2dLight.RayHandler;
 import java.util.LinkedList;
 import java.util.List;
+
+import box2dLight.PointLight;
+import box2dLight.RayHandler;
 
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
@@ -187,7 +188,8 @@ public class ReversiGameScreen implements Screen {
                     break;
                 }
                    spheresToFlip.add(currentPiece.sphere);
-                if (nextTileNumber % 8 == 0 || nextTileNumber % 8 == 7) {
+                if ((nextTileNumber % 8 == 0 && (dir == Directions.SOUTH || dir == Directions.SOUTH_WEST || dir == Directions.SOUTHEAST))
+                        || (nextTileNumber % 8 == 7 && (dir == Directions.NORTH || dir == Directions.NORTH_EAST || dir == Directions.NORTH_WEST))) {
                     break;
                 }
         }

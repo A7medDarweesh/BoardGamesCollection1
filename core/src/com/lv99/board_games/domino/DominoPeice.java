@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class DominoPeice extends Group {
     DominoSegment upperSegment, lowerSegment;
     ShapeRenderer renderer;
+    boolean selected;
 
     public DominoPeice(int upperNumber, int lowernumber, float x, float y, float width, float height, Viewport viewport) {
         renderer = new ShapeRenderer();
@@ -48,5 +49,12 @@ public class DominoPeice extends Group {
     void toggleFlipState() {
         lowerSegment.flipped=!lowerSegment.flipped;
         upperSegment.flipped=!upperSegment.flipped;
+    }
+
+    public void doSelect() {
+        selected = !selected;
+        DominoStage stage = (DominoStage) getStage();
+        stage.setSelectedPiece(selected ? this : null);
+
     }
 }
