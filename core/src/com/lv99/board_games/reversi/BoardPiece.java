@@ -1,6 +1,7 @@
 package com.lv99.board_games.reversi;
 
-import com.badlogic.gdx.graphics.Color;
+import box2dLight.RayHandler;
+
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
@@ -15,12 +16,14 @@ public class BoardPiece extends Actor {
     private final ReversiGameScreen game;
     private final int tileNumber;
     PostProcessor post;
+    RayHandler rayHandler;
 
-    public BoardPiece(int x, int y, int width, int height, ReversiGameScreen game, int tileNumber) {
+    public BoardPiece(int x, int y, int width, int height, ReversiGameScreen game, int tileNumber, RayHandler rayHandler) {
         setBounds(x, y, width, height);
         this.game = game;
         addListener(new ClickHandler(this));
         this.tileNumber = tileNumber;
+        this.rayHandler = rayHandler;
     }
 
     public void resize(int x, int y, int width, int height) {
@@ -51,16 +54,18 @@ public class BoardPiece extends Actor {
 //        renderer.translate(getX(), getY(), 0);
 
         renderer.begin(ShapeType.Filled);
-        renderer.setColor(Color.BLACK);
+        renderer.setColor(0.5f, 0.3f, 0.1f, 0.0f);
 
         renderer.rect(getX(), getY(), getWidth(), getHeight());
-        renderer.setColor(Color.GREEN);
+        renderer.setColor(125 / 255f, 125 / 255f, 125 / 255f, 0.7f);
         renderer.rect(getX() + STROKE_WIDTH, getY() + STROKE_WIDTH, getWidth() - (STROKE_WIDTH * 2), getHeight() - (STROKE_WIDTH * 2));
         if (sphere != null) {
             sphere.drawSphere(batch, parentAlpha);
         }
+        //
+        // rayHandler.update();
+        // rayHandler.render();
         renderer.end();
-
         batch.begin();
 
     }

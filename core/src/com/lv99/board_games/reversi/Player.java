@@ -15,6 +15,6 @@ import com.badlogic.gdx.graphics.Color;
 public enum Player {
     BLACK,WHITE;
     public Color getColor(){
-        return this==BLACK?Color.BLACK:Color.WHITE;
+        return this == BLACK ? Color.BLACK : Color.WHITE;
     }
 }

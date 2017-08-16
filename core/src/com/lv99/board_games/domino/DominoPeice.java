@@ -34,6 +34,7 @@ public class DominoPeice extends Group {
     public void act(float delta) {
 
         super.act(delta);
+
     }
     public void rotate() {
         addAction(Actions.rotateBy(-90, 0.5f));
@@ -54,6 +55,9 @@ public class DominoPeice extends Group {
     public void doSelect() {
         selected = !selected;
         DominoStage stage = (DominoStage) getStage();
+        stage.setActorsScale();
+        if (selected)
+            setScale(1.2f);
         stage.setSelectedPiece(selected ? this : null);
 
     }

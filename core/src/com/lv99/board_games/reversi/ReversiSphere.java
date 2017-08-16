@@ -23,8 +23,7 @@ public class ReversiSphere extends Actor {
     private final ShapeRenderer renderer ;
     public boolean isNotDrawnYet = true;
     void switchPlayer() {
-        System.out.println(getColor());
-        System.out.println(player.getColor());
+
         if (player == Player.BLACK) {
             player = Player.WHITE;
         } else {

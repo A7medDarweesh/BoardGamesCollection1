@@ -84,7 +84,7 @@ public class ReversiGameScreen implements Screen {
         } else {
 
             for (int i = 0; i < boardHeight * boardWidth; i++) {
-                BoardPiece currentpBoardPiece = new BoardPiece(xTranslate + (i % boardWidth) * pieceWidth, yTranselate + (i / boardWidth) * pieceHeiht, effectiveDimension, effectiveDimension, this, i);
+                BoardPiece currentpBoardPiece = new BoardPiece(xTranslate + (i % boardWidth) * pieceWidth, yTranselate + (i / boardWidth) * pieceHeiht, effectiveDimension, effectiveDimension, this, i, rayHandler);
                 pieces[i] = currentpBoardPiece;
                 stage.addActor(currentpBoardPiece);
             }
@@ -94,7 +94,7 @@ public class ReversiGameScreen implements Screen {
     @Override
     public void render(float delta) {
 //        postProcessor.capture();
-        Gdx.gl.glClearColor(0.2f, 0.3f, 0.7f, 0.5f);
+        Gdx.gl.glClearColor(0.5f, 0.3f, 0.1f, 0.5f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.begin();
         game.font.draw(game.batch, "Black:"+0, 0, 0);
